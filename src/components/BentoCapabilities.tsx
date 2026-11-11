@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import {
-  Lightning,
-  Cpu,
-  WaveSine,
-  SlidersHorizontal,
-  ArrowUpRight,
-  Broadcast,
-  ShieldCheck,
-} from '@phosphor-icons/react';
+import { Lightning } from '@phosphor-icons/react/dist/csr/Lightning';
+import { Cpu } from '@phosphor-icons/react/dist/csr/Cpu';
+import { WaveSine } from '@phosphor-icons/react/dist/csr/WaveSine';
+import { SlidersHorizontal } from '@phosphor-icons/react/dist/csr/SlidersHorizontal';
+import { ArrowUpRight } from '@phosphor-icons/react/dist/csr/ArrowUpRight';
+import { Broadcast } from '@phosphor-icons/react/dist/csr/Broadcast';
+import { ShieldCheck } from '@phosphor-icons/react/dist/csr/ShieldCheck';
 
 interface YieldStrategy {
   id: string;

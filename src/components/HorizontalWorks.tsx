@@ -2,11 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import {
-  SlidersHorizontal,
-  CheckCircle,
-  CaretUp,
-} from '@phosphor-icons/react';
+import { SlidersHorizontal } from '@phosphor-icons/react/dist/csr/SlidersHorizontal';
+import { CheckCircle } from '@phosphor-icons/react/dist/csr/CheckCircle';
+import { CaretUp } from '@phosphor-icons/react/dist/csr/CaretUp';
 
 gsap.registerPlugin(ScrollTrigger);
 

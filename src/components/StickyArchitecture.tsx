@@ -2,12 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { useReducedMotion } from 'motion/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {
-  ShieldCheck,
-  ArrowsLeftRight,
-  Coins,
-  TerminalWindow,
-} from '@phosphor-icons/react';
+import { ShieldCheck } from '@phosphor-icons/react/dist/csr/ShieldCheck';
+import { ArrowsLeftRight } from '@phosphor-icons/react/dist/csr/ArrowsLeftRight';
+import { Coins } from '@phosphor-icons/react/dist/csr/Coins';
+import { TerminalWindow } from '@phosphor-icons/react/dist/csr/TerminalWindow';
 
 gsap.registerPlugin(ScrollTrigger);
 

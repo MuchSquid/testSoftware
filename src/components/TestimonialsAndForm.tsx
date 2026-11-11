@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import {
-  CheckCircle,
-  WarningCircle,
-  ShieldCheck,
-  Sparkle,
-} from '@phosphor-icons/react';
+import { CheckCircle } from '@phosphor-icons/react/dist/csr/CheckCircle';
+import { WarningCircle } from '@phosphor-icons/react/dist/csr/WarningCircle';
+import { ShieldCheck } from '@phosphor-icons/react/dist/csr/ShieldCheck';
+import { Sparkle } from '@phosphor-icons/react/dist/csr/Sparkle';
 
 interface ImpactMetric {
   value: string;
