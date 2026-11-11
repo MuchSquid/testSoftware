@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroInteractive from '../components/HeroInteractive';
+import TrustedLogos from '../components/TrustedLogos';
+import HorizontalWorks from '../components/HorizontalWorks';
+import BentoCapabilities from '../components/BentoCapabilities';
+import StickyArchitecture from '../components/StickyArchitecture';
+import TestimonialsAndForm from '../components/TestimonialsAndForm';
+---
+
+<Layout
+  title="Vaultra // Innovative Crypto Financial Solutions"
+  description="We Don't Just Focus On Investments, We Cover Your Entire Financial Ecosystem, From Budgeting To Retirement."
+>
+  <main id="contenido-principal" class="relative">
+    <HeroInteractive client:load />
+    <TrustedLogos />
+    <HorizontalWorks client:visible />
+    <BentoCapabilities client:visible />
+    <StickyArchitecture client:visible />
+    <TestimonialsAndForm client:visible />
+  </main>
+</Layout>

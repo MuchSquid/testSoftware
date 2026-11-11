@@ -1,0 +1,34 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Vaultra // Innovative Crypto Financial Solutions',
+  description = "We Don't Just Focus On Investments, We Cover Your Entire Financial Ecosystem, From Budgeting To Retirement.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#030207" />
+    <link
+      rel="preload"
+      as="image"
+      href="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/f1631235-0a76-464d-8f1d-2c4b48a997d5.jpg"
+    />
+  </head>
+  <body class="bg-[#030207] text-white antialiased selection:bg-pink-500/35 selection:text-white">
+    <slot />
+  </body>
+</html>

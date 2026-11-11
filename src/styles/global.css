@@ -1,0 +1,388 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource-variable/jetbrains-mono";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root,
+.dark {
+  --surface: #030207;
+  --surface-elevated: #090714;
+  --surface-subtle: #120e24;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --border-hairline: rgba(255, 255, 255, 0.14);
+  --accent: #f472b6;
+  --accent-bright: #e879f9;
+  --accent-ink: #06050a;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #030207;
+    color: #ffffff;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    caret-color: #f472b6;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(232, 121, 249, 0.45) #030207;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #030207;
+    color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Browser Surfaces: Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #030207;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(232, 121, 249, 0.4);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(244, 114, 182, 0.7);
+  }
+
+  ::selection {
+    background-color: rgba(244, 114, 182, 0.35);
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #f472b6;
+    outline-offset: 3px;
+  }
+}
+
+/* ==========================================================================
+   VAULTRA UNIFIED DESIGN SYSTEM (HERO + ALL SECTIONS)
+   ========================================================================== */
+
+.vaultra-hero {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 700px;
+  background-color: #030207;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  isolation: isolate;
+}
+
+.vaultra-media-plate {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #030207;
+}
+
+.vaultra-globe-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.vaultra-video-stack {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.85s ease;
+}
+
+.vaultra-video-stack.is-ready {
+  opacity: 1;
+}
+
+@media (min-width: 1480px) {
+  .vaultra-media-plate {
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000000 10%,
+      #000000 90%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000000 10%,
+      #000000 90%,
+      transparent 100%
+    );
+  }
+}
+
+@media (max-width: 767px) {
+  .vaultra-media-plate {
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.65) 14%,
+      #000000 28%,
+      #000000 100%
+    );
+    mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.65) 14%,
+      #000000 28%,
+      #000000 100%
+    );
+  }
+}
+
+/* Signature Vaultra Headline & Section Title Gradient:
+   Inter Display 300, white with a soft pink-to-lilac gradient at both ends */
+.vaultra-headline-line,
+.vaultra-title-gradient {
+  font-family: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  background: linear-gradient(
+    90deg,
+    #f6b6da 0%,
+    #d8bef8 16%,
+    #ffffff 32%,
+    #ffffff 68%,
+    #dbc0f9 84%,
+    #f6b6da 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.vaultra-headline-line {
+  display: block;
+  font-size: clamp(2.15rem, 4.6vw, 4.125rem);
+  line-height: 1.13;
+}
+
+/* Glass Pill Badge (same as "⚡ Revolutionizing Crypto Finance") */
+.vaultra-glass-pill {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 10px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 9999px;
+}
+
+/* Frosted Glass Card Container for Sections */
+.vaultra-glass-card {
+  position: relative;
+  border-radius: 28px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 20px 50px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.vaultra-glass-card:hover {
+  border-color: rgba(244, 114, 182, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 24px 60px rgba(0, 0, 0, 0.65),
+    0 0 36px rgba(216, 190, 248, 0.1);
+}
+
+/* Primary White Pill CTA & Outline Pill CTA */
+.vaultra-btn-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #06050a;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  box-shadow: 0 10px 35px rgba(255, 255, 255, 0.24);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vaultra-btn-white:hover {
+  background: rgba(255, 255, 255, 0.92);
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(246, 182, 218, 0.35);
+}
+
+.vaultra-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.vaultra-btn-outline:hover {
+  border-color: rgba(246, 182, 218, 0.5);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+/* Glass Coin Chips */
+.vaultra-coin-chip {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 30% 25%,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.05) 70%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    0 0 18px rgba(232, 121, 249, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+/* 1.6s Sequenced Entrance Choreography */
+@keyframes vaultra-rise-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.vaultra-enter-nav {
+  opacity: 0;
+  animation: vaultra-rise-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
+}
+
+.vaultra-enter-pill {
+  opacity: 0;
+  animation: vaultra-rise-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.vaultra-enter-h1-1 {
+  opacity: 0;
+  animation: vaultra-rise-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.34s forwards;
+}
+
+.vaultra-enter-h1-2 {
+  opacity: 0;
+  animation: vaultra-rise-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.48s forwards;
+}
+
+.vaultra-enter-copy {
+  opacity: 0;
+  animation: vaultra-rise-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.68s forwards;
+}
+
+.vaultra-enter-cta {
+  opacity: 0;
+  animation: vaultra-rise-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.84s forwards;
+}
+
+.vaultra-enter-chips {
+  opacity: 0;
+  animation: vaultra-rise-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .vaultra-video-stack {
+    display: none !important;
+  }
+
+  .vaultra-enter-nav,
+  .vaultra-enter-pill,
+  .vaultra-enter-h1-1,
+  .vaultra-enter-h1-2,
+  .vaultra-enter-copy,
+  .vaultra-enter-cta,
+  .vaultra-enter-chips {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
